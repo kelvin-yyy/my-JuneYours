@@ -12,6 +12,12 @@
 	<!-- 	<video ref="videoPlayer" autoplay="autoplay" :controls="showControls" muted  loop
 			:src="currentVideo" @ended="handleVideoEnded" class="videos" ></video> -->
 	</div>
+	<div class="poster">
+		<img class="posterImg" :src="posterImg" alt="" align="center"/>
+		<div class="posters">
+			<img v-for="(item,index) in posters"  :src="item.img" :class="item.state?'postersImg':'postersImgs'" alt="" align="center"  @mouseenter="postersenter(item)" @click="postersClick(item)"/>
+		</div>
+	</div>
 </template>
 
 <script setup>
@@ -24,6 +30,20 @@
 	const videos = ref([
 		'https://juneyours.s3.amazonaws.com/WeChat_20240426101226.mp4' , // 替换为你的视频路径  
 		// 'https://juneyours.s3.amazonaws.com/video4.mp4' // 替换为你的视频路径  
+	]);
+	const posterImg = ref([
+		'https://juneyours.s3.amazonaws.com/poster1.png' , // 替换为你的视频路径  
+		// 'https://juneyours.s3.amazonaws.com/video4.mp4' // 替换为你的视频路径  
+	]);
+	const posters = ref([{
+		img:"https://juneyours.s3.amazonaws.com/poster1.png",state:true,id:1
+	},{
+		img:"https://juneyours.s3.amazonaws.com/poster2.png",state:false,id:2
+	},{
+		img:"https://juneyours.s3.amazonaws.com/poster1.png",state:false,id:3
+	},{
+		img:"https://juneyours.s3.amazonaws.com/poster2.png",state:false,id:4
+	}
 	]);
 	 const videoPlayer = ref(null); 
 	const currentIndex = ref(0);
@@ -46,6 +66,18 @@
 	const handleTimeUpdates = () => {
 		muted.value=true
 		videoPlayer.value.muted = true;
+	}
+	const postersenter=(item)=>{
+		posters.value.forEach((res)=>{
+			if(res.id==item.id){
+				res.state=true
+			}else{
+				res.state=false
+			}
+		})
+	}
+	const postersClick=(item)=>{
+		posterImg.value=item.img
 	}
 	// 生命周期钩子，可以在这里进行初始化操作，例如检查浏览器是否支持视频播放等  
 	onMounted(() => {
@@ -85,6 +117,32 @@
 		z-index:10;
 		i{
 			font-size: 30px;
+		}
+	}
+	.poster{
+		width: 100%;
+		height:100vh;
+		position: relative;
+		.posterImg{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		.posters{
+			width:100%;
+			height:35vh;
+			position: absolute;
+			bottom:20px;
+			left: 0;
+			text-align: right;
+			.postersImg{
+				height: 100%;
+				margin-right:50px
+			}
+			.postersImgs{
+				height: 93%;
+				margin-right:50px
+			}
 		}
 	}
 </style>
