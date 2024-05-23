@@ -40,9 +40,7 @@
 	},{
 		img:"https://juneyours.s3.amazonaws.com/poster2.png",state:false,id:2
 	},{
-		img:"https://juneyours.s3.amazonaws.com/poster1.png",state:false,id:3
-	},{
-		img:"https://juneyours.s3.amazonaws.com/poster2.png",state:false,id:4
+		img:"https://juneyours.s3.amazonaws.com/848ca6c010776f92540a5eee2c05344.png",state:false,id:3
 	}
 	]);
 	 const videoPlayer = ref(null); 
