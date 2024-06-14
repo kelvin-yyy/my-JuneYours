@@ -12,8 +12,9 @@
 	<!-- 	<video ref="videoPlayer" autoplay="autoplay" :controls="showControls" muted  loop
 			:src="currentVideo" @ended="handleVideoEnded" class="videos" ></video> -->
 	</div>
-	<div class="poster">
+	<div class="poster flexcenter">
 		<img class="posterImg" :src="posterImg" alt="" align="center"/>
+		<img class="posterImgs" :src="posterImg" alt="" align="center"/>
 		<div class="posters">
 			<img v-for="(item,index) in posters"  :src="item.img" :class="item.state?'postersImg':'postersImgs'" alt="" align="center"  @mouseenter="postersenter(item)" @click="postersClick(item)"/>
 		</div>
@@ -121,10 +122,21 @@
 	}
 	.poster{
 		width: 100%;
+		height:100vh;
 		position: relative;
 		.posterImg{
 			width: 100%;
+			height: 100%;
 			object-fit: cover;
+			filter: blur(50px);
+			z-index: -1;
+		}
+		.posterImgs{
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+			top: 0;
+			z-index: 1;
 		}
 		.posters{
 			width:100%;
@@ -132,6 +144,7 @@
 			position: absolute;
 			bottom:20px;
 			left: 0;
+			z-index: 2;
 			text-align: right;
 			.postersImg{
 				height: 100%;
