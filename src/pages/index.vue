@@ -128,7 +128,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			filter: blur(50px);
+			filter: blur(15px);
 			z-index: -1;
 		}
 		.posterImgs{
@@ -148,11 +148,11 @@
 			text-align: right;
 			.postersImg{
 				height: 100%;
-				margin-right:50px
+				margin-right:30px
 			}
 			.postersImgs{
 				height: 93%;
-				margin-right:50px
+				margin-right:30px
 			}
 		}
 	}
