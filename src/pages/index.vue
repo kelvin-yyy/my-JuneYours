@@ -65,6 +65,8 @@
 		muted.value=true
 		videoPlayer.value.muted = true;
 	}
+	// class add=1
+	
 	const postersenter=(item)=>{
 		posters.value.forEach((res)=>{
 			if(res.id==item.id){
@@ -119,11 +121,9 @@
 	}
 	.poster{
 		width: 100%;
-		height:100vh;
 		position: relative;
 		.posterImg{
 			width: 100%;
-			height: 100%;
 			object-fit: cover;
 		}
 		.posters{
