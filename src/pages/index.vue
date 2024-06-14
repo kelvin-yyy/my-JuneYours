@@ -128,7 +128,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			filter: blur(15px);
+			filter: blur(30px);
 			z-index: -1;
 		}
 		.posterImgs{
